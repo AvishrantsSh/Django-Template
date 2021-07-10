@@ -1,17 +1,9 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
-
-<br>
 <p align="center">
   <!-- <a href="https://github.com/AvishrantsSh/Django-Template">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-  <h2 align="center">Django Template</h2>
+  <h1 align="center">Django Template</h1>
 
   <p align="center">
     An awesome way to kickstart your Django projects!
@@ -23,11 +15,17 @@
   </p>
 </p>
 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
+<br>
 
 <!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+<details open>
+  <summary><h2 style="display: inline;">Table of Contents</h2></summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -68,7 +66,7 @@ This project is optimized to run on Linux Environments. Tests for Windows and Ma
 
 ### Installation
 
-Simply click on `Use this template` on top to get started. This will make your own django project repository with this directory structure.
+Simply click on [Use this template](https://github.com/AvishrantsSh/Django-Template/generate) on top to get started. This will make your own django project repository with this directory structure.
 
 Alternatively, you can clone this template repository using
 ```sh
