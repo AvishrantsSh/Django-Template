@@ -8,21 +8,19 @@
   <p align="center">
     An awesome way to kickstart your Django projects!
     <br>
-    <br>
     <a href="https://github.com/AvishrantsSh/Django-Template/issues">Report Bug</a>
     ·
     <a href="https://github.com/AvishrantsSh/Django-Template/issues">Request Feature</a>
   </p>
 </p>
+<br>
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-
 <br>
-
 <!-- TABLE OF CONTENTS -->
 
 ## Table of Contents
@@ -89,6 +87,7 @@ After getting a local copy on your system, proceed with the following steps.
     ```sh
     make migrate
     ```
+
 <!-- USAGE EXAMPLES -->
 ## Usage
 
