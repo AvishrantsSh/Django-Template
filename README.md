@@ -1,9 +1,9 @@
 <p align="center">
-  <!-- <a href="https://github.com/AvishrantsSh/Django-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a> -->
+  <a href="https://github.com/AvishrantsSh/Django-Template">
+    <img src="assets/logo.png" alt="Logo" width="480">
+  </a>
 
-  <h1 align="center">Django Template</h1>
+  <h2 align="center">Django Template</h2>
 
   <p align="center">
     An awesome way to kickstart your Django projects!
@@ -14,12 +14,24 @@
   </p>
 </p>
 <br>
+<p align="center">
+  <a href="https://github.com/AvishrantsSh/Django-Template/graphs/contributors">
+    <img alt="Contributors" src="https://img.shields.io/github/contributors/AvishrantsSh/Django-Template.svg?style=for-the-badge" style="max-width:100%;">
+  </a>
+  <a href="https://github.com/AvishrantsSh/Django-Template/network/members">
+    <img alt="Forks" src="https://img.shields.io/github/forks/AvishrantsSh/Django-Template.svg?style=for-the-badge" style="max-width:100%;">
+  </a>
+  <a  href="https://github.com/AvishrantsSh/Django-Template/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/AvishrantsSh/Django-Template.svg?style=for-the-badge" style="max-width:100%;">
+  </a>
+  <a href="https://github.com/AvishrantsSh/Django-Template/issues">
+    <img alt="Issues" src="https://img.shields.io/github/issues/AvishrantsSh/Django-Template.svg?style=for-the-badge" style="max-width:100%;">
+  </a>
+  <a href="https://github.com/AvishrantsSh/Django-Template/blob/main/LICENSE">
+    <img alt="MaIT License" src="https://img.shields.io/github/license/AvishrantsSh/Django-Template.svg?style=for-the-badge" style="max-width:100%;">
+  </a>
+</p>
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 <br>
 <!-- TABLE OF CONTENTS -->
 
@@ -45,17 +57,17 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Managing your Django project and all its dependencies can be a nightmare. This also includes working in virtual environments, securing your `SECRET KEY`, adding files to `.gitignore` etc.
+Managing your Django project and all its dependencies can be a nightmare. This also includes managing dependencies in virtual environments, securing your `SECRET KEY`, adding files to `.gitignore`, running code style validations and what not.
 
 Why not simplify this tedious and repetetive work? 
 
-With this objective in mind, I created `Django Template`, a simple and minimalistic django project template that fits all your requiremenets. 
+With this objective in mind, I created `Django Template`, a simple and minimalistic django project template that fits all your requirements. 
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple steps.
+Simply click on [Use this template](https://github.com/AvishrantsSh/Django-Template/generate) button on top to get started. Go ahead and choose a cool name for your project. Clone the newly created repository and continue with the following steps.
 
 ### Prerequisites
 
@@ -63,27 +75,29 @@ This project is optimized to run on Linux Environments. Tests for Windows and Ma
 
 ### Installation
 
-Simply click on [Use this template](https://github.com/AvishrantsSh/Django-Template/generate) on top to get started. This will make your own django project repository with this directory structure.
-
-Alternatively, you can clone this template repository using
-```sh
-git clone https://github.com/AvishrantsSh/Django-Template.git
-```
-
-After getting a local copy on your system, proceed with the following steps.
+After getting a local copy on your system, run the following commands.
 
 1. To build your django project, run
     ```sh
     make project
     ```
-    A prompt will ask you to enter a valid project name before continuing.
-    Alternatively, you can run the following command
-    ```sh
-    django-admin startproject --template=./structure ${project-name} .
-    ```
-    This command will setup your virtual environment, secret keys and all the dependencies required by a django project.
+    A prompt will ask you to enter a valid project name before continuing. This command will setup your virtual environment, secret keys and all the basic dependencies required by a django project.
 
-2. Apply Database Migrations
+    Alternatively, if you prefer a finer control over your project creation,you can use the following commands
+    - Install all project dependencies and create virtual environment
+        ```sh
+        make install
+        ```
+
+    - Make django project using `django-admin`
+        ```sh
+        django-admin startproject --template=./etc/structure ${project-name} .
+        ```
+    
+
+    _Note: This directory will now function as your root django folder. Upon creation of a project, a folder named `${project-name}` and `manage.py` will appear at the root._
+
+2. Apply database migrations
     ```sh
     make migrate
     ```
@@ -92,7 +106,7 @@ After getting a local copy on your system, proceed with the following steps.
 ## Usage
 
 You can use `make` commands to perform various operations on your django project.
-1. Start django server on port `8000`
+1. Start django server on port `8000`. You can customize it by editing `PORT` in `Makefile`. 
     ```sh
     make run
     ```
@@ -106,7 +120,7 @@ You can use `make` commands to perform various operations on your django project
     ```sh
     make flush
     ```
-     _Note:Media files will not be deleted using this command_
+     _Note: Media files will not be deleted using this command_
 
 4. Update project requirements (useful for deployment)
     ```sh
@@ -117,6 +131,16 @@ You can use `make` commands to perform various operations on your django project
     ```sh
     make format
     ```
+
+_Note: This is just a subset of most common commands used while working with django. To use other commands as well, activate the virtual environment using_
+```sh
+. bin/activate
+```
+
+_To deactivate the environment, simply use `deactivate` command_
+```sh
+deactivate
+```
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -133,17 +157,3 @@ Contributions are what make the open source community such an amazing place to b
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/AvishrantsSh/Django-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/AvishrantsSh/Django-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/AvishrantsSh/Django-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/AvishrantsSh/Django-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/AvishrantsSh/Django-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/AvishrantsSh/Django-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/AvishrantsSh/Django-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/AvishrantsSh/Django-Template/issues
-[license-shield]: https://img.shields.io/github/license/AvishrantsSh/Django-Template.svg?style=for-the-badge
-[license-url]: https://github.com/AvishrantsSh/Django-Template/blob/main/LICENSE

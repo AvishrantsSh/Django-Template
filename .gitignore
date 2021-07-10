@@ -3,14 +3,14 @@
 *.pot
 *.pyc
 __pycache__
-db.sqlite3
+*.sqlite3
 media
 
 # Backup files
 *.bak 
 
 # PyCharm
-.idea/*
+.idea/
 
 # Python # 
 *.py[cod] 
@@ -25,8 +25,8 @@ media
 # Environments 
 .env
 pyvenv.cfg
-bin/*
-lib/*
+bin/
+lib/
 
 # Sublime Text # 
 *.tmlanguage.cache 
@@ -43,5 +43,12 @@ Control.system-ca-bundle
 GitHub.sublime-settings 
 
 # Visual Studio Code # 
-.vscode/*
+.vscode/
 .history
+
+# Misc
+tmp/
+.cache/
+dist/
+build/
+.settings

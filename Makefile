@@ -5,6 +5,9 @@ VIRTUALENV_PYZ=etc/virtualenv.pyz
 GET_SECRET_KEY=`base64 /dev/urandom | head -c50`
 ENV_FILE=.env
 
+# Default Django Port
+PORT = 8000
+
 virtualenv:
 	@echo "-> Making Virtual Environment"
 	@${PYTHON_EXE} ${VIRTUALENV_PYZ} --never-download --no-periodic-update .
@@ -20,14 +23,14 @@ install: virtualenv
 project: install
 	@echo -n "-> Enter Project Name: ";\
 	read PROJECT; \
-	django-admin startproject --template=./structure $${PROJECT} .
+	django-admin startproject --template=./etc/structure $${PROJECT} .
 
 migrate:
 	@echo "-> Apply database migrations"
 	${MANAGE} migrate
 
 run:
-	${MANAGE} runserver 8000
+	${MANAGE} runserver ${PORT}
 
 freeze:
 	@echo "-> Updating Project Requirements"
