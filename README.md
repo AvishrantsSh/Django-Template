@@ -65,11 +65,6 @@ This project is optimized to run on Linux Environments. Tests for Windows and Ma
 
 Simply click on [Use this template](https://github.com/AvishrantsSh/Django-Template/generate) on top to get started. This will make your own django project repository with this directory structure.
 
-Alternatively, you can clone this template repository using
-```sh
-git clone https://github.com/AvishrantsSh/Django-Template.git
-```
-
 After getting a local copy on your system, proceed with the following steps.
 
 1. To build your django project, run
