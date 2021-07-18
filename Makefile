@@ -27,6 +27,7 @@ project: install
 
 migrate:
 	@echo "-> Apply database migrations"
+	${MANAGE} makemigrations
 	${MANAGE} migrate
 
 run:
@@ -38,7 +39,7 @@ freeze:
 
 flush:
 	@echo "-> Flushing Database"
-	${ACTIVATE} ./manage.py flush
+	${MANAGE} flush
 
 format:
 	@echo "-> Run isort imports ordering validation"

@@ -75,14 +75,27 @@ This project is optimized to run on Linux Environments. Tests for Windows and Ma
 
 ### Installation
 
-After getting a local copy on your system, run the following commands.
+After getting a local copy on your system, run the following commands based on your role.
 
-1. To build your django project, run
+- ### Making a new Django Project
+    If you are a developer who is just starting with a new project, simply run
     ```sh
     make project
     ```
     A prompt will ask you to enter a valid project name before continuing. This command will setup your virtual environment, secret keys and all the basic dependencies required by a django project.
 
+    
+    
+    _Note: While developing, it is advisable to enter your **virtual environment** for proper configuration and better control. To enter a virtual environment, use_
+    ```sh
+    . bin/activate
+    ```
+
+    _To deactivate the environment, simply use `deactivate` command_
+    ```
+    deactivate
+    ```
+    ___
     Alternatively, if you prefer a finer control over your project creation,you can use the following commands
     - Install all project dependencies and create virtual environment
         ```sh
@@ -93,13 +106,18 @@ After getting a local copy on your system, run the following commands.
         ```sh
         django-admin startproject --template=./etc/structure ${project-name} .
         ```
-    
+
+      Replace `${project-name}` with the name of Django project as per your wish. Also, you can customize the template for your project,according to your need.
 
     _Note: This directory will now function as your root django folder. Upon creation of a project, a folder named `${project-name}` and `manage.py` will appear at the root._
+  ___
 
-2. Apply database migrations
+- ### Running an existing Django Project
+    If the repository already contains a django project, you can simply install the requirements and run the project.
+
+    To install all the dependencies, use
     ```sh
-    make migrate
+    make install
     ```
 
 <!-- USAGE EXAMPLES -->
@@ -126,21 +144,12 @@ You can use `make` commands to perform various operations on your django project
     ```sh
     make freeze
     ```
+   This command will add all your project dependencies to `etc/requirements.txt`, making it very easy for deployment.
 
 5. Check for proper formatting and import style using `black` and `isort`
     ```sh
     make format
     ```
-
-_Note: This is just a subset of most common commands used while working with django. To use other commands as well, activate the virtual environment using_
-```sh
-. bin/activate
-```
-
-_To deactivate the environment, simply use `deactivate` command_
-```sh
-deactivate
-```
 
 <!-- CONTRIBUTING -->
 ## Contributing
