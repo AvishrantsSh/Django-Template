@@ -146,6 +146,11 @@ You can use `make` commands to perform various operations on your django project
     ```
    This command will add all your project dependencies to `etc/requirements.txt`, making it very easy for deployment.
 
+5. Running Django Testcases
+    ```sh
+    make test
+    ```
+
 5. Check for proper formatting and import style using `black` and `isort`
     ```sh
     make format

@@ -1,7 +1,6 @@
 PYTHON_EXE?=python3
 MANAGE=bin/python manage.py
 ACTIVATE?=. bin/activate;
-VIRTUALENV_PYZ=etc/virtualenv.pyz
 GET_SECRET_KEY=`base64 /dev/urandom | head -c50`
 ENV_FILE=.env
 
@@ -10,7 +9,7 @@ PORT = 8000
 
 virtualenv:
 	@echo "-> Making Virtual Environment"
-	@${PYTHON_EXE} ${VIRTUALENV_PYZ} --never-download --no-periodic-update .
+	@${PYTHON_EXE} -m venv .
 
 install: virtualenv
 	@echo "-> Generating Secret key"
@@ -46,3 +45,6 @@ format:
 	@isort --gitignore .
 	@echo "-> Run black validation"
 	@black .
+
+test:
+	@${MANAGE} test
