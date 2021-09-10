@@ -9,5 +9,5 @@ pathspec==0.8.1
 python-dotenv==0.18.0
 pytz==2021.1
 regex==2021.7.6
-sqlparse==0.4.1
+sqlparse==0.4.2
 toml==0.10.2
