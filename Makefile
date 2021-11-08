@@ -8,14 +8,18 @@ ENV_FILE=.env
 PORT = 8000
 
 virtualenv:
+	@echo "-> Getting Essential Build Files"
+	@sudo apt-get install python3-venv
 	@echo "-> Making Virtual Environment"
 	@${PYTHON_EXE} -m venv .
 
-install: virtualenv
+genkey: virtualenv
 	@echo "-> Generating Secret key"
 	@if test -f ${ENV_FILE}; then echo ".env file exists already"; true; fi
 	@mkdir -p $(shell dirname ${ENV_FILE}) && touch ${ENV_FILE}
 	@echo SECRET_KEY=\"${GET_SECRET_KEY}\" > ${ENV_FILE}
+
+install: genkey
 	@echo "-> Installing Dependencies"
 	@${ACTIVATE} pip install -r etc/requirements.txt
 
@@ -41,10 +45,16 @@ flush:
 	${MANAGE} flush
 
 format:
+	@echo "-> Run autoflake to remove unused imports"
+	@${ACTIVATE} autoflake ${AUTOFLAKE_ARGS} .
 	@echo "-> Run isort imports ordering validation"
-	@isort --gitignore .
+	@${ACTIVATE} isort --profile black --gitignore .
 	@echo "-> Run black validation"
-	@black .
+	@${ACTIVATE} black .
 
 test:
 	@${MANAGE} test
+
+check: test
+	@echo "-> Run black validation"
+	@${ACTIVATE} black --check .
