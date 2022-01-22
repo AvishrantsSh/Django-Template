@@ -31,7 +31,7 @@ dev: genkey
 project: dev
 	@echo -n "-> Enter Project Name: ";\
 	read PROJECT; \
-	django-admin startproject --template=./etc/structure $${PROJECT} .
+	@${ACTIVATE} django-admin startproject --template=./etc/structure $${PROJECT} .
 	@echo "-> Clearing Redundant Files"
 	@rm -r etc/structure
 
