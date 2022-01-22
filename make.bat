@@ -4,7 +4,6 @@ SET PYTHON_EXE=python
 SET MANAGE=.\Scripts\python manage.py
 SET ENV_FILE=.env
 SET DJANGO_PORT=8000
-SET AUTOFLAKE_ARGS=--in-place --remove-all-unused-imports --ignore-init-module-imports --ignore-init-module-imports -r
 
 IF [%1]==[] (
     ECHO Please specify the function to execute
@@ -19,13 +18,18 @@ IF "%1"=="genkey" (
 IF "%1"=="install" (
     CALL :install
 )
+IF "%1"=="dev" (
+    CALL :dev
+)
 IF "%1"=="project" (
-    CALL :install
+    CALL :dev
     IF [%2]==[] (
         ECHO Please specify a project name
         EXIT
     )
     django-admin startproject --template=.\etc\structure %2 .
+    ECHO Clearing Redundant Files
+    rmdir etc/structure
 )
 IF "%1"=="migrate" (
     ECHO - Migrating Database
@@ -41,8 +45,6 @@ IF "%1"== "flush" (
     %MANAGE% flush
 )
 IF "%1"=="format" (
-    ECHO - Run autoflake to remove unused imports
-	.\Scripts\autoflake %AUTOFLAKE_ARGS% .
 	ECHO - Run isort imports ordering validation
 	.\Scripts\isort --profile black --gitignore .
 	ECHO - Run black validation
@@ -76,11 +78,19 @@ EXIT /B 0
     ) ELSE (
         ECHO .env file already exists
     )
+    TYPE etc/env.txt >> .env
     EXIT /B 0
 
 :install
     CALL :virtualenv
     ECHO - Installing Dependencies
-    .\Scripts\%PYTHON_EXE% -m pip install -r requirements.txt
+    .\Scripts\%PYTHON_EXE% -m pip install -r etc/base.txt
+    CALL :genkey
+    EXIT /B 0
+
+:dev
+    CALL :virtualenv
+    ECHO - Installing Dependencies
+    .\Scripts\%PYTHON_EXE% -m pip install -r etc/dev.txt
     CALL :genkey
     EXIT /B 0

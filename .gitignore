@@ -27,9 +27,12 @@ media
 pyvenv.cfg
 bin/
 lib/
+Lib
 lib64/
 lib64
 share/
+include/
+Scripts/
 
 # Sublime Text # 
 *.tmlanguage.cache 
@@ -55,3 +58,8 @@ tmp/
 dist/
 build/
 .settings
+.DS_Store
+
+# Coverage Test Reports
+.coverage
+htmlcov
